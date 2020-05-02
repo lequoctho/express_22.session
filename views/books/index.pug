@@ -1,0 +1,15 @@
+extends ../layouts/common
+
+block content
+  ul
+    each book in books
+      li
+        span= book.text
+        span &nbsp 
+        a(href="/books/" + book.id + "/delete/" ) Delete
+        span &nbsp 
+        a(href="/books/update/" +book.id) Update
+
+  form(action="/books/create", method="POST")
+    input(type="text",name="text")
+    button Create

@@ -1,0 +1,16 @@
+extends ../layouts/common
+
+block content
+  h1 Users
+  ul
+    each user in users
+      li
+        span= user.text
+        span &nbsp 
+        a(href="/users/" + user.id + "/delete/" ) Delete
+        span &nbsp 
+        a(href="/users/"+user.id+"/update/" ) Update
+
+  form(action="/users/create", method="POST")
+    input(type="text",name="text")
+    button Create

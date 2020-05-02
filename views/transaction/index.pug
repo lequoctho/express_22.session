@@ -1,0 +1,23 @@
+extends ../layouts/common
+
+block content
+  h1 Transaction
+
+  ul
+    each transaction in transactions
+      li
+        span= transaction.userId
+        span &nbsp 
+        span= transaction.bookId
+        span &nbsp 
+        if transaction.complete === 'false'
+          a(href="/transactions/" + transaction.id + "/complete" ) Complete
+
+  form(action="/transactions/create", method="POST", id="transactionForm")
+    select(form="transactionForm", name="userId")
+      each val in users
+        option(value=val.id)= val.text 
+    select(form="transactionForm", name="bookId")
+      each val in books
+        option(value=val.id)= val.text 
+    button Create
