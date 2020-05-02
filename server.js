@@ -20,13 +20,13 @@ app.set('views','./views');
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
-
-
 app.use('/users', routeUser);
 
 app.use('/transactions', routeTransaction);
 
 app.use('/books', routeBook);
+
+app.use(express.static('public'));
 
 // listen for requests :)
 app.listen(process.env.PORT, () => {
