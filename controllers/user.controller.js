@@ -35,9 +35,16 @@ module.exports.create = (req, res) => {
   req.body.id = shortid.generate();
   var error = 'user over 30 characters';
   if (req.body.text.length > 30)
-    {
-      
-    }
-  db.get('users').push(req.body).write();
-  res.redirect("/users");
+  {
+    res.render('users/index',{
+      users: db.get('users').value(),
+      value: req.body,
+      error: error
+    });
+  }
+  else
+  {
+    db.get('users').push(req.body).write();
+    res.redirect("/users");  
+  }
 };

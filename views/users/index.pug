@@ -2,6 +2,8 @@ extends ../layouts/common
 
 block content
   h1 Users
+  if error
+    .alert.alert-danger=error
   ul
     each user in users
       li
@@ -12,5 +14,5 @@ block content
         a(href="/users/"+user.id+"/update/" ) Update
 
   form(action="/users/create", method="POST")
-    input(type="text",name="text")
+    input(type="text",name="text", value=value?value.text:'')
     button Create
