@@ -32,8 +32,20 @@ module.exports.create = (req, res) => {
 
 module.exports.complete = (req, res) => {
   var id = req.params.id;
-
-  db.get('transactions').find({id: id}).assign({complete: true}).write();
-
-  res.redirect("/transactions");
+  var errors = [];
+  var transactions = db.get('transactions').value();
+  for(var transaction of transactions)
+  {
+    if (id === transaction.id)
+      {
+        db.get('transactions').find({id: id}).assign({complete: true}).write();
+        res.redirect("/transactions");
+        break;
+      }
+  }
+  
+  
+  res.redirect("/transactions",{
+    value: value
+  });
 }
