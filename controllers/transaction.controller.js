@@ -40,12 +40,12 @@ module.exports.complete = (req, res) => {
       {
         db.get('transactions').find({id: id}).assign({complete: true}).write();
         res.redirect("/transactions");
-        break;
+        return;
       }
   }
   
-  
-  res.redirect("/transactions",{
-    value: value
+  errors.push('Incorrect id');
+  res.render('transaction/index',{
+    errors: errors
   });
 }
