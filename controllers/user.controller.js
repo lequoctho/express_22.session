@@ -33,6 +33,11 @@ module.exports.updatePost = (req, res)=> {
   
 module.exports.create = (req, res) => {
   req.body.id = shortid.generate();
+  var error = 'user over 30 characters';
+  if (req.body.text.length > 30)
+    {
+      
+    }
   db.get('users').push(req.body).write();
   res.redirect("/users");
 };
