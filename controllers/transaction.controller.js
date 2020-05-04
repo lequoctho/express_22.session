@@ -30,9 +30,9 @@ module.exports.create = (req, res) => {
   res.redirect("/transactions");
 };
 
-module.exports.complete = (req, res) => {
+module.exports.complete = (req, res, next) => {
   var id = req.params.id;
-  var errors = [];
+  
   var transactions = db.get('transactions').value();
   for(var transaction of transactions)
   {
@@ -44,24 +44,5 @@ module.exports.complete = (req, res) => {
       }
   }
   
-  errors.push('Incorrect id');
-  var users = db.get('users').value();
-   var books = db.get('books').value();
-   var transactionsDB = JSON.parse(JSON.stringify(db.get('transactions').value()));
-   console.log(transactionsDB);
-   var transactions = transactionsDB.map((objTransaction) => {
-    
-    var user = users.find(user=>user.id === objTransaction.userId);
-    var book = books.find(book=>book.id === objTransaction.bookId);
-    
-    objTransaction.userId = user.text;
-    objTransaction.bookId = book.text;
-    return objTransaction;
-  });
-  res.render('transaction/index',{
-    errors: errors,
-    users: users,
-    books: books,
-    transactions: transactions
-  });
+  next();
 }
