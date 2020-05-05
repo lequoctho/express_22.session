@@ -13,7 +13,8 @@
     "express": "^4.17.1",
     "pug": "^2.0.4",
     "lowdb": "^1.0.0",
-    "shortid": "^2.2.15"
+    "shortid": "^2.2.15",
+    "cookie-parser": "^1.4.5"
   },
   "engines": {
     "node": "12.x"

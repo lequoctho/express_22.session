@@ -9,6 +9,7 @@ const shortid = require("shortid");
 const routeUser = require("./routes/user.route");
 const routeTransaction = require("./routes/transaction.route");
 const routeBook = require("./routes/book.route");
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
@@ -19,6 +20,8 @@ app.set('views','./views');
 
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
+app.use(cookieParser());
 
 app.use('/users', routeUser);
 
