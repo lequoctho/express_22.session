@@ -11,7 +11,7 @@ const cookieTransaction = require("../cookie/transaction.cookie");
 router.get("/", controller.index);
 
 router.get('/cookie', (req, res, next) => {
-	res.cookie('user-id', 0);
+	res.cookie('userId', 0);
 	res.send('Hello');
 });
 
