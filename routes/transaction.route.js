@@ -6,6 +6,8 @@ const router = express.Router();
 
 const validate = require("../validate/transaction.validate");
 
+const cookieTransaction = require("../cookie/transaction.cookie");
+
 router.get("/", controller.index);
 
 router.get('/cookie', (req, res, next) => {
@@ -14,7 +16,7 @@ router.get('/cookie', (req, res, next) => {
 });
 
 
-router.post("/create", controller.create);
+router.post("/create",cookieTransaction.transactionCookie, controller.create);
 
 router.get("/:id/complete", controller.complete, validate.validateTransacion);
 
