@@ -5,7 +5,7 @@ module.exports.index = (req, res) => {
    var users = db.get('users').value();
    var books = db.get('books').value();
    var transactionsDB = JSON.parse(JSON.stringify(db.get('transactions').value()));
-   console.log(transactionsDB);
+
    var transactions = transactionsDB.map((objTransaction) => {
     
     var user = users.find(user=>user.id === objTransaction.userId);
