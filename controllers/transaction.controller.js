@@ -5,15 +5,16 @@ module.exports.index = (req, res) => {
    var users = db.get('users').value();
    var books = db.get('books').value();
    var userCurrent = db.get('users').find({ id: req.cookies.userId }).value();
-   var transactions;
-   if(userCurrent.isAdmin === true){
-     transactions = db.get('transactions').value();
+  console.log(req.cookies.userId);
+   var transactionsDB;
+   if(userCurrent.isAdmin === "true"){
+     transactionsDB = JSON.parse(JSON.stringify(db.get('transactions').value()));
    }
    else{
-    
+     transactionsDB = JSON.parse(JSON.stringify(db.get('transactions').filter({userId: req.cookies.userId}).value()));
    }
   
-   var transactionsDB = JSON.parse(JSON.stringify(db.get('transactions').value()));
+   
 
    var transactions = transactionsDB.map((objTransaction) => {
     
