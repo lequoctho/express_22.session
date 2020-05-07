@@ -2,6 +2,7 @@ dependencies:
   cookie-parser: 1.4.5
   express: 4.17.1
   lowdb: 1.0.0
+  md5: 2.2.1
   pug: 2.0.4
   shortid: 2.2.15
 packages:
@@ -127,6 +128,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-x84o821LzZdE5f/CxfzeHHMmH8A=
+  /charenc/0.0.2:
+    dev: false
+    resolution:
+      integrity: sha1-wKHS86cJLgN3S/qD8UwPxXkKhmc=
   /clean-css/4.2.3:
     dependencies:
       source-map: 0.6.1
@@ -191,6 +196,10 @@ packages:
     requiresBuild: true
     resolution:
       integrity: sha512-5wjnpaT/3dV+XB4borEsnAYQchn00XSgTAWKDkEqv+K8KevjbzmofK6hfJ9TZIlpj2N0xQpazy7PiRQiWHqzWg==
+  /crypt/0.0.2:
+    dev: false
+    resolution:
+      integrity: sha1-iNf/fsDfuG9xPch7u0LQRNPmxBs=
   /debug/2.6.9:
     dependencies:
       ms: 2.0.0
@@ -442,6 +451,14 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-2+x8esE/Wb9SQ1F9IHaYWfsC9FIecLOPrK4g17FGEayjUWH172H6nwicRovGvSE2CPZouc2MCIqCI7h9d+GftQ==
+  /md5/2.2.1:
+    dependencies:
+      charenc: 0.0.2
+      crypt: 0.0.2
+      is-buffer: 1.1.6
+    dev: false
+    resolution:
+      integrity: sha1-U6s41f48iJG6RlMp6iP6wFQBJvk=
   /media-typer/0.3.0:
     dev: false
     engines:
@@ -860,5 +877,6 @@ specifiers:
   cookie-parser: ^1.4.5
   express: ^4.17.1
   lowdb: ^1.0.0
+  md5: ^2.2.1
   pug: ^2.0.4
   shortid: ^2.2.15

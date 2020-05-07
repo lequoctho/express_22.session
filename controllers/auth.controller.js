@@ -1,3 +1,5 @@
+var md5 = require('md5');
+
 var db = require('../db');
 
 module.exports.login = (req, res) => {
@@ -18,7 +20,8 @@ module.exports.postLogin = function(req, res){
 		return;
 	}	
 
-	if (user.password !== password) {
+  var hashedPassword = md5(password);
+	if (user.password !== hashedPassword) {
 		res.render('auth/login', {
 			errors: ['Wrong password'],
 			values: req.body
