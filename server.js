@@ -10,6 +10,9 @@ const routeUser = require("./routes/user.route");
 const routeTransaction = require("./routes/transaction.route");
 const routeBook = require("./routes/book.route");
 const cookieParser = require('cookie-parser');
+const authRoute = require('./routes/auth.route');
+
+const authMiddleware = require('./middlewares/auth.middleware');
 
 const app = express();
 
@@ -23,11 +26,13 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 
 app.use(cookieParser());
 
-app.use('/users', routeUser);
+app.use('/users',authMiddleware.requireAuth ,routeUser);
 
-app.use('/transactions', routeTransaction);
+app.use('/transactions',authMiddleware.requireAuth , routeTransaction);
 
-app.use('/books', routeBook);
+app.use('/books',authMiddleware.requireAuth , routeBook);
+
+app.use('/auth', authRoute);
 
 app.use(express.static('public'));
 

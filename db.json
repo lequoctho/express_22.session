@@ -18,25 +18,29 @@
       "text": "Tho",
       "id": "EnSaAFYtO",
       "email": "tho@gmail.com",
-      "password": "123123"
+      "password": "123123",
+      "isAdmin": "true"
     },
     {
       "text": "Lin",
       "id": "Q5MmmtkPW",
       "email": "lin@gmail.com",
-      "password": "123123"
+      "password": "123123",
+      "isAdmin": "false"
     },
     {
       "text": "test",
       "id": "MXcyNGbTG",
       "email": "test@gmail.com",
-      "password": "123123"
+      "password": "123123",
+      "isAdmin": "false"
     },
     {
       "text": "111111111111111111111111111111",
       "id": "n96sHHWm4",
       "email": "1@gmail.com",
-      "password": "123123"
+      "password": "123123",
+      "isAdmin": "false"
     }
   ],
   "transactions": [
