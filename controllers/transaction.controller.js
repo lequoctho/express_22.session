@@ -4,6 +4,15 @@ const shortid = require("shortid");
 module.exports.index = (req, res) => {
    var users = db.get('users').value();
    var books = db.get('books').value();
+   var userCurrent = db.get('users').find({ id: req.cookies.userId }).value();
+   var transactions;
+   if(userCurrent.isAdmin === true){
+     transactions = db.get('transactions').value();
+   }
+   else{
+    
+   }
+  
    var transactionsDB = JSON.parse(JSON.stringify(db.get('transactions').value()));
 
    var transactions = transactionsDB.map((objTransaction) => {
