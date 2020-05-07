@@ -16,19 +16,27 @@
   "users": [
     {
       "text": "Tho",
-      "id": "EnSaAFYtO"
+      "id": "EnSaAFYtO",
+      "email": "tho@gmail.com",
+      "password": "123"
     },
     {
       "text": "Lin",
-      "id": "Q5MmmtkPW"
+      "id": "Q5MmmtkPW",
+      "email": "lin@gmail.com",
+      "password": "123"
     },
     {
       "text": "test",
-      "id": "MXcyNGbTG"
+      "id": "MXcyNGbTG",
+      "email": "test@gmail.com",
+      "password": "123"
     },
     {
       "text": "111111111111111111111111111111",
-      "id": "n96sHHWm4"
+      "id": "n96sHHWm4",
+      "email": "1@gmail.com",
+      "password": "123"
     }
   ],
   "transactions": [
