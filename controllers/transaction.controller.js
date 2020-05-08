@@ -4,14 +4,14 @@ const shortid = require("shortid");
 module.exports.index = (req, res) => {
    var users = db.get('users').value();
    var books = db.get('books').value();
-   var userCurrent = db.get('users').find({ id: req.cookies.userId }).value();
-  console.log(req.cookies.userId);
+   var userCurrent = db.get('users').find({ id: req.signedCookies.userId }).value();
+  console.log(req.signedCookies.userId);
    var transactionsDB;
    if(userCurrent.isAdmin === "true"){
      transactionsDB = JSON.parse(JSON.stringify(db.get('transactions').value()));
    }
    else{
-     transactionsDB = JSON.parse(JSON.stringify(db.get('transactions').filter({userId: req.cookies.userId}).value()));
+     transactionsDB = JSON.parse(JSON.stringify(db.get('transactions').filter({userId: req.signedCookies.userId}).value()));
    }
   
    
