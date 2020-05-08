@@ -28,7 +28,7 @@
       "email": "lin@gmail.com",
       "password": "123",
       "isAdmin": "false",
-      "wrongLoginCount": "0"
+      "wrongLoginCount": 5
     },
     {
       "text": "test",
