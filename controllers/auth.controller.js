@@ -19,18 +19,19 @@ module.exports.postLogin = function(req, res){
 		});
 		return;
 	}	
-
-  var hashedPassword = bcrypt.hashSync(password, 10);
-  console.log(hashedPassword);
-  console.log(user.password);
-  console.log(user.password !== hashedPassword);
-	if (bcrypt.compareSync(user.password, hashedPassword)) {
-		res.render('auth/login', {
-			errors: ['Wrong password'],
-			values: req.body
-		});
-		return;
-	}
+  
+  if (user.wrongLoginCount <= 4) {
+    var hashedPassword = bcrypt.hashSync(password, 10);
+    if (!bcrypt.compareSync(user.password, hashedPassword)) {
+      // count wrongLoginCount
+      db.get('users').find({id: id}).assign(text).write();
+      res.render('auth/login', {
+        errors: ['Wrong password'],
+        values: req.body
+      });
+      return;
+    } 
+  }
 
 	res.cookie('userId', user.id);
 	res.redirect('/transactions');

@@ -18,7 +18,7 @@
       "text": "Tho",
       "id": "EnSaAFYtO",
       "email": "tho@gmail.com",
-      "password": "$2b$10$zeWEDBDJTEJDtKO0ltuip.2NOKFf5iqG.ToDVIFD0rTSwsPQAGNNy",
+      "password": "123",
       "isAdmin": "true",
       "wrongLoginCount": "0"
     },
@@ -26,7 +26,7 @@
       "text": "Lin",
       "id": "Q5MmmtkPW",
       "email": "lin@gmail.com",
-      "password": "$2b$10$zeWEDBDJTEJDtKO0ltuip.2NOKFf5iqG.ToDVIFD0rTSwsPQAGNNy",
+      "password": "123",
       "isAdmin": "false",
       "wrongLoginCount": "0"
     },
@@ -34,7 +34,7 @@
       "text": "test",
       "id": "MXcyNGbTG",
       "email": "test@gmail.com",
-      "password": "$2b$10$zeWEDBDJTEJDtKO0ltuip.2NOKFf5iqG.ToDVIFD0rTSwsPQAGNNy",
+      "password": "123",
       "isAdmin": "false",
       "wrongLoginCount": "0"
     },
@@ -42,7 +42,7 @@
       "text": "111111111111111111111111111111",
       "id": "n96sHHWm4",
       "email": "1@gmail.com",
-      "password": "$2b$10$zeWEDBDJTEJDtKO0ltuip.2NOKFf5iqG.ToDVIFD0rTSwsPQAGNNy",
+      "password": "123",
       "isAdmin": "false",
       "wrongLoginCount": "0"
     }
