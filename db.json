@@ -18,28 +18,28 @@
       "text": "Tho",
       "id": "EnSaAFYtO",
       "email": "tho@gmail.com",
-      "password": "202cb962ac59075b964b07152d234b70",
+      "password": "$2b$10$zeWEDBDJTEJDtKO0ltuip.2NOKFf5iqG.ToDVIFD0rTSwsPQAGNNy",
       "isAdmin": "true"
     },
     {
       "text": "Lin",
       "id": "Q5MmmtkPW",
       "email": "lin@gmail.com",
-      "password": "202cb962ac59075b964b07152d234b70",
+      "password": "$2b$10$zeWEDBDJTEJDtKO0ltuip.2NOKFf5iqG.ToDVIFD0rTSwsPQAGNNy",
       "isAdmin": "false"
     },
     {
       "text": "test",
       "id": "MXcyNGbTG",
       "email": "test@gmail.com",
-      "password": "202cb962ac59075b964b07152d234b70",
+      "password": "$2b$10$zeWEDBDJTEJDtKO0ltuip.2NOKFf5iqG.ToDVIFD0rTSwsPQAGNNy",
       "isAdmin": "false"
     },
     {
       "text": "111111111111111111111111111111",
       "id": "n96sHHWm4",
       "email": "1@gmail.com",
-      "password": "202cb962ac59075b964b07152d234b70",
+      "password": "$2b$10$zeWEDBDJTEJDtKO0ltuip.2NOKFf5iqG.ToDVIFD0rTSwsPQAGNNy",
       "isAdmin": "false"
     }
   ],

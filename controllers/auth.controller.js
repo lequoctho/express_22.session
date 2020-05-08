@@ -1,4 +1,4 @@
-var md5 = require('md5');
+var bcrypt = require('bcrypt');
 
 var db = require('../db');
 
@@ -20,7 +20,7 @@ module.exports.postLogin = function(req, res){
 		return;
 	}	
 
-  var hashedPassword = md5(password);
+  var hashedPassword = bcrypt.hashSync(password, 10);
 	if (user.password !== hashedPassword) {
 		res.render('auth/login', {
 			errors: ['Wrong password'],
