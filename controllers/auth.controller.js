@@ -28,7 +28,7 @@ module.exports.postLogin = function(req, res) {
     if (user.wrongLoginCount === "2") {
       sgMail.setApiKey(process.env.SENDGRID_API_KEY);
       const msg = {
-        to: "leequoctho@gmail.com",
+        to: email,
         from: "testsendmaillequoctho@gmail.com",
         subject: "Test send mail",
         text: "Hello World",
