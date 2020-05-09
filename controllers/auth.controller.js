@@ -25,20 +25,20 @@ module.exports.postLogin = function(req, res){
       const sgMail = require('@sendgrid/mail');
       sgMail.setApiKey(process.env.SENDGRID_API_KEY);
       const msg = {
-        to: test@example.com',
-        from: 'test@example.com',
-        subject: 'Sending with SendGrid is Fun',
-        text: 'and easy to do anywhere, even with Node.js',
-        html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+        to: 'leequoctho@gmail.com',
+        from: 'testsendmaillequoctho@gmail.com',
+        subject: 'Test send mail',
+        text: 'Hello World',
+        html: '<strong>Hello World</strong>',
       };
       sgMail.send(msg);  
     }
     var hashedPassword = bcrypt.hashSync(password, 10);
     if (!bcrypt.compareSync(user.password, hashedPassword)) {
       // count wrongLoginCount
-      var countWrong = user.wrongLoginCount + 1;
+      var countWrong = parseInt(user.wrongLoginCount) + 1;
       console.log('countWrong',countWrong);
-      db.get('users').find({id: user.id}).assign({wrongLoginCount: countWrong}).write();
+      db.get('users').find({id: user.id}).assign({wrongLoginCount: countWrong.toString()}).write();
       res.render('auth/login', {
         errors: ['Wrong password'],
         values: req.body
