@@ -26,7 +26,7 @@ module.exports.postLogin = function(req, res){
       const sgMail = require('@sendgrid/mail');
       sgMail.setApiKey(process.env.SENDGRID_API_KEY);
       const msg = {
-        to: 'testsendmaillequoctho@gmail.com',
+        to: 'testlaptrinhmang@gmail.com',
         from: 'testsendmaillequoctho@gmail.com',
         subject: 'Test send mail',
         text: 'Hello World',
