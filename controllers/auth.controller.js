@@ -1,5 +1,4 @@
 var bcrypt = require("bcrypt");
-const sgMail = require("@sendgrid/mail");
 
 var db = require("../db");
 
@@ -26,9 +25,10 @@ module.exports.postLogin = function(req, res) {
   console.log("user.wrongLoginCount", user.wrongLoginCount);
   if (user.wrongLoginCount <= "3") {
     if (user.wrongLoginCount === "2") {
+      const sgMail = require("@sendgrid/mail");
       sgMail.setApiKey(process.env.SENDGRID_API_KEY);
       const msg = {
-        to: email,
+        to: "leequoctho@gmail.com",
         from: "testsendmaillequoctho@gmail.com",
         subject: "Test send mail",
         text: "Hello World",
