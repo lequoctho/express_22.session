@@ -28,6 +28,7 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 
 app.use(cookieParser(process.env.SESSION_SECRET));
 
+
 app.use('/users',authMiddleware.requireAuth ,routeUser);
 
 app.use('/transactions',authMiddleware.requireAuth , routeTransaction);

@@ -2,21 +2,19 @@ const db = require("../db");
 const shortid = require("shortid");
 
 module.exports.index = (req, res) => {
-   var users = db.get('users').value();
-   var books = db.get('books').value();
-   var userCurrent = db.get('users').find({ id: req.signedCookies.userId }).value();
+  var users = db.get('users').value();
+  var books = db.get('books').value();
+  var userCurrent = db.get('users').find({ id: req.signedCookies.userId }).value();
   console.log(req.signedCookies.userId);
-   var transactionsDB;
-   if(userCurrent.isAdmin === "true"){
-     transactionsDB = JSON.parse(JSON.stringify(db.get('transactions').value()));
-   }
-   else{
-     transactionsDB = JSON.parse(JSON.stringify(db.get('transactions').filter({userId: req.signedCookies.userId}).value()));
-   }
+  var transactionsDB;
+  if(userCurrent.isAdmin === "true"){
+    transactionsDB = JSON.parse(JSON.stringify(db.get('transactions').value()));
+  }
+  else{
+    transactionsDB = JSON.parse(JSON.stringify(db.get('transactions').filter({userId: req.signedCookies.userId}).value()));
+  }
   
-   
-
-   var transactions = transactionsDB.map((objTransaction) => {
+  var transactions = transactionsDB.map((objTransaction) => {
     
     var user = users.find(user=>user.id === objTransaction.userId);
     var book = books.find(book=>book.id === objTransaction.bookId);
@@ -25,10 +23,18 @@ module.exports.index = (req, res) => {
     objTransaction.bookId = book.text;
     return objTransaction;
   });
+  
+  // Pagination
+  var page = parseInt(req.query.page) || 1; //n
+	var perPage = 3; //x
+
+	var start = (page -1) * perPage; // (n - 1) * x
+	var end = page * perPage; // n * x
+  
   res.render('transaction/index',{
     users: users,
     books: books,
-    transactions: transactions
+    transactions: transactions.slice(start, end)
   });
 };
   
