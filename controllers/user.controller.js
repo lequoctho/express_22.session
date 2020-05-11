@@ -33,6 +33,13 @@ module.exports.updatePost = (req, res)=> {
   
 module.exports.create = (req, res) => {
   req.body.id = shortid.generate();
+  
+  req.body.email = req.body.text + "@gmail.com";
+  req.body.password = "123";
+  req.body.isAdmin = "0";
+  req.body.wrongLoginCount = "0";
+  req.body.avatar = req.file.path.split('/').slice(1).join('/');
+  
   var error = 'user over 30 characters';
   if (req.body.text.length > 30)
   {

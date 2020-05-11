@@ -13,11 +13,11 @@ block content
         span &nbsp 
         a(href="/users/"+user.id+"/update/" ) Update
 
-  form(action="/users/create", method="POST")
+  form(action="/users/create", method="POST", enctype="multipart/form-data")
     .form-group
-			label.ml-5(for="text") Text
-			input#text.form-control.ml-5(name="text" type="text" value=values ? values.name : '')
-		.form-group
-			label.ml-5(for="avatar") Avatar
-			input#avatar.form-control-file.ml-5(name="avatar" type="file")
-		button.btn.btn-primary.ml-5 Create
+      label.ml-5(for="text") Text
+      input#text.form-control.ml-5(name="text" type="text" value=values ? values.name : '')
+    .form-group
+      label.ml-5(for="avatar") Avatar
+      input#avatar.form-control-file.ml-5(name="avatar" type="file")
+    button.btn.btn-primary.ml-5 Create
