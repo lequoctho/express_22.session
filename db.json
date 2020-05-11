@@ -20,7 +20,7 @@
       "email": "tho@gmail.com",
       "password": "123",
       "isAdmin": "true",
-      "wrongLoginCount": "0"
+      "wrongLoginCount": "1"
     },
     {
       "text": "Lin",

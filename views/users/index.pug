@@ -14,5 +14,10 @@ block content
         a(href="/users/"+user.id+"/update/" ) Update
 
   form(action="/users/create", method="POST")
-    input(type="text",name="text", value=value?value.text:'')
-    button Create
+    .form-group
+			label.ml-5(for="text") Text
+			input#text.form-control.ml-5(name="text" type="text" value=values ? values.name : '')
+		.form-group
+			label.ml-5(for="avatar") Avatar
+			input#avatar.form-control-file.ml-5(name="avatar" type="file")
+		button.btn.btn-primary.ml-5 Create

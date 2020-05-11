@@ -9,7 +9,6 @@ const express = require("express");
 const shortid = require("shortid");
 
 const routeUser = require("./routes/user.route");
-const routeProfile = require("./routes/profile.route");
 const routeTransaction = require("./routes/transaction.route");
 const routeBook = require("./routes/book.route");
 const cookieParser = require('cookie-parser');
@@ -31,8 +30,6 @@ app.use(cookieParser(process.env.SESSION_SECRET));
 
 
 app.use('/users',authMiddleware.requireAuth ,routeUser);
-
-app.use('/profile',authMiddleware.requireAuth ,routeProfile);
 
 app.use('/transactions',authMiddleware.requireAuth , routeTransaction);
 
