@@ -15,7 +15,8 @@ router.get("/:id/update", controller.update);
 
 router.post("/:id/update", controller.updatePost);
 
-router.post("/create", upload.single('avatar'), controller.create);
+//router.post("/create", upload.single('avatar'), controller.create);
+router.post("/create", controller.create);
 
 module.exports = router;
 

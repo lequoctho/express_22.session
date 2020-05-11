@@ -1,6 +1,7 @@
 dependencies:
   '@sendgrid/mail': 7.1.0
   bcrypt: 4.0.1
+  cloudinary: 1.21.0
   cookie-parser: 1.4.5
   dotenv: 8.2.0
   express: 4.17.1
@@ -272,6 +273,15 @@ packages:
     dev: false
     resolution:
       integrity: sha1-S0dXYP+AJkx2LDoXGQMukcf+oNE=
+  /cloudinary/1.21.0:
+    dependencies:
+      lodash: 4.17.15
+      q: 1.5.1
+    dev: false
+    engines:
+      node: '>=0.6'
+    resolution:
+      integrity: sha512-am8wpHbHl8bcpy9oGSlWrpWLNQ9szkW/jmhcJdEpMjaL23BYt05V1frWyrXDlo8Jt7aCo5NE6EO0CM9Zaynd5g==
   /code-point-at/1.1.0:
     dev: false
     engines:
@@ -1122,6 +1132,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-XhoaDlvi6NIzL49nu094R2NA6P37ijtgMDuWE+ofekDChvfKnzFal60bhSdiy8y2PBO6fmz3oMEIcfpBVRUdvw==
+  /q/1.5.1:
+    dev: false
+    engines:
+      node: '>=0.6.0'
+      teleport: '>=0.2.0'
+    resolution:
+      integrity: sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
   /qs/6.7.0:
     dev: false
     engines:
@@ -1508,6 +1525,7 @@ shrinkwrapVersion: 3
 specifiers:
   '@sendgrid/mail': ^7.1.0
   bcrypt: ^4.0.1
+  cloudinary: ^1.21.0
   cookie-parser: ^1.4.5
   dotenv: ^8.2.0
   express: ^4.17.1
