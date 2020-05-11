@@ -48,21 +48,11 @@
     },
     {
       "text": "tom",
-      "id": "3jik43i6Z",
+      "id": "cUc-36Do-",
       "email": "tom@gmail.com",
       "password": "123",
       "isAdmin": "0",
-      "wrongLoginCount": "0",
-      "avatar": "uploads/f9b84326bca1f264e5f88d95bbb5a2a5"
-    },
-    {
-      "text": "asdsa",
-      "id": "8Z5QESC0n",
-      "email": "asdsa@gmail.com",
-      "password": "123",
-      "isAdmin": "0",
-      "wrongLoginCount": "0",
-      "avatar": {}
+      "wrongLoginCount": "0"
     }
   ],
   "transactions": [

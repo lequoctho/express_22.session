@@ -47,7 +47,9 @@ module.exports.create = (req, res) => {
   req.body.wrongLoginCount = "0";
   
   var file = req.file.path;
-  req.body.avatar = cloudinary.uploader.upload(file, { folder: 'uploads'});
+  cloudinary.uploader.upload(file, { folder: 'uploads'}).then((result) => {
+    req.body.avatar = result.url;
+  });
   
   var error = 'user over 30 characters';
   if (req.body.text.length > 30)
