@@ -4,14 +4,21 @@ block content
   h1 Users
   if error
     .alert.alert-danger=error
-  ul
+  table.table
+    tr
+      th Avatar
+      th Name
+      th Delete
+      th Delete
     each user in users
-      li
-        span= user.text
-        span &nbsp 
-        a(href="/users/" + user.id + "/delete/" ) Delete
-        span &nbsp 
-        a(href="/users/"+user.id+"/update/" ) Update
+      tr
+        td
+          img(src=user.avatar, width="32")
+        td= user.text
+        td
+          a.btn.btn-dark(href="/users/" + user.id + "/delete/" ) Delete
+        td
+          a.btn.btn-dark(href="/users/"+user.id+"/update/" ) Update
 
   form(action="/users/create", method="POST", enctype="multipart/form-data")
     .form-group

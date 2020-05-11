@@ -11,11 +11,11 @@ router.get("/", controller.index);
 
 router.get("/:id/delete", controller.delete);
 
-router.get("/:id/update",upload.single('avatar'), controller.update);
+router.get("/:id/update", controller.update);
 
 router.post("/:id/update", controller.updatePost);
 
-router.post("/create", controller.create);
+router.post("/create",upload.single('avatar'), controller.create);
 
 module.exports = router;
 
