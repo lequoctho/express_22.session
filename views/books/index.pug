@@ -8,7 +8,7 @@ block content
       th amount
     each session in sessions
       tr
-        each val, key in session
+        each val, key in session.cart
           td=key
           td=val
         

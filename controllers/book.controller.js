@@ -10,6 +10,17 @@ cloudinary.config({
 });
 
 module.exports.index = (req, res) => {
+  var booksDB = 
+  var books = booksDB.map((objTransaction) => {
+    
+    var user = users.find(user=>user.id === objTransaction.userId);
+    var book = books.find(book=>book.id === objTransaction.bookId);
+    
+    objTransaction.userId = user.text;
+    objTransaction.bookId = book.text;
+    return objTransaction;
+  });
+  
   res.render('books/index',{
     books: db.get('books').value(),
     sessions: db.get('sessions').value()
