@@ -1,14 +1,21 @@
 extends ../layouts/common
 
 block content
-  ul
+  table.table
+    tr
+      th Avatar
+      th Name
+      th Delete
+      th Delete
     each book in books
-      li
-        span= book.text
-        span &nbsp 
-        a(href="/books/" + book.id + "/delete/" ) Delete
-        span &nbsp 
-        a(href="/books/update/" +book.id) Update
+      tr
+        td
+          img(src=book.avatar, width="32")
+        td= book.text
+        td
+          a.btn.btn-dark(href="/books/" + book.id + "/delete/" ) Delete
+        td
+          a.btn.btn-dark(href="/books/update/" +book.id) Update
 
   form(action="/books/create", method="POST", enctype="multipart/form-data")
     .form-group

@@ -1,6 +1,14 @@
 const db = require("../db");
 const shortid = require("shortid");
 
+var cloudinary = require('cloudinary').v2;
+
+cloudinary.config({
+    cloud_name: 'dyyvyaebn',
+    api_key: '917625491239926',
+    api_secret: '92xLizGhwwm5Fh8mOG_xJ8ujzv8'
+});
+
 module.exports.index = (req, res) => {
   res.render('books/index',{
     books: db.get('books').value()
@@ -33,6 +41,12 @@ module.exports.updatePost = (req, res)=> {
   
 module.exports.create = (req, res) => {
   req.body.id = shortid.generate();
+  
+  var file = req.file.path;
+  cloudinary.uploader.upload(file, { folder: 'uploads'}).then((result) => {
+    req.body.avatar = result.url;
+  });
+  
   db.get('books').push(req.body).write();
   res.redirect("/books");
 };
