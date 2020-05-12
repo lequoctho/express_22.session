@@ -18,19 +18,20 @@ module.exports.addToCart = function(req, res, next) {
 		.find({id: sessionId})
 		.set('cart.'+bookId, count + 1)
 		.write();
-
-  var booksDB = JSON.parse(JSON.stringify(db.get('books').value()));
-  var books = booksDB.map((objBook) => {
+  
+  var books = db.get('books').value();
+  var sessionsCartDB = JSON.parse(JSON.stringify(db.get('sessions.cart').value()));
+  var sessionsCart = sessionsCartDB.map((objSessionsCartDB) => {
     
-    var book = books.find(book=>book.id === objBook.bookId);
+    var book = books.find(book=>book.id === objSessionsCartDB.bookId);
     
-    objBook.bookId = book.text;
-    return objBook;
+    objSessionsCartDB.bookId = book.text;
+    return objSessionsCartDB;
   });
   
 	res.render('books/index',{
-    books: db.get('books').value(),
-    sessions: db.get('sessions').value(),
+    books: books,
+    sessions: sessionsCart,
     sesionId: sessionId
   });
 };
