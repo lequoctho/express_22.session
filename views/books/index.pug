@@ -10,6 +10,11 @@ block content
         span &nbsp 
         a(href="/books/update/" +book.id) Update
 
-  form(action="/books/create", method="POST")
-    input(type="text",name="text")
-    button Create
+  form(action="/books/create", method="POST", enctype="multipart/form-data")
+    .form-group
+      label.ml-5(for="text") Text
+      input#text.form-control.ml-5(name="text" type="text" value=values ? values.name : '')
+    .form-group
+      label.ml-5(for="avatar") Avatar
+      input#avatar.form-control-file.ml-5(name="avatar" type="file")
+    button.btn.btn-primary.ml-5 Create
