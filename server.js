@@ -16,6 +16,7 @@ const authRoute = require('./routes/auth.route');
 const cartRoute = require('./routes/cart.route');
 
 const authMiddleware = require('./middlewares/auth.middleware');
+const sessionMiddleware = require('./middlewares/session.middleware');
 
 const app = express();
 
@@ -34,7 +35,7 @@ app.use('/users',authMiddleware.requireAuth ,routeUser);
 
 app.use('/transactions',authMiddleware.requireAuth , routeTransaction);
 
-app.use('/books', routeBook);
+app.use('/books', sessionMiddleware, routeBook);
 
 app.use('/auth', authRoute);
 
