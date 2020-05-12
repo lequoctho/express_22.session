@@ -33,7 +33,7 @@ app.use('/users',authMiddleware.requireAuth ,routeUser);
 
 app.use('/transactions',authMiddleware.requireAuth , routeTransaction);
 
-app.use('/books',authMiddleware.requireAuth , routeBook);
+app.use('/books', routeBook);
 
 app.use('/auth', authRoute);
 
