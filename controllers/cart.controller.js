@@ -19,14 +19,13 @@ module.exports.addToCart = function(req, res, next) {
 		.set('cart.'+bookId, count + 1)
 		.write();
 
-  var booksDB = db.get('books').value();
-  var books = booksDB.map((objTransaction) => {
+  var booksDB = JSON.parse(JSON.stringify(db.get('books').value()));
+  var books = booksDB.map((objBook) => {
     
-    var user = users.find(user=>user.id === objTransaction.userId);
-    var book = books.find(book=>book.id === objTransaction.bookId);
+    var book = books.find(book=>book.id === objBook.bookId);
     
-    objTransaction.bookId = book.text;
-    return objTransaction;
+    objBook.bookId = book.text;
+    return objBook;
   });
   
 	res.render('books/index',{
