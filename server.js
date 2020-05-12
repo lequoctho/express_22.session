@@ -13,6 +13,7 @@ const routeTransaction = require("./routes/transaction.route");
 const routeBook = require("./routes/book.route");
 const cookieParser = require('cookie-parser');
 const authRoute = require('./routes/auth.route');
+const cartRoute = require('./routes/cart.route');
 
 const authMiddleware = require('./middlewares/auth.middleware');
 
@@ -36,6 +37,8 @@ app.use('/transactions',authMiddleware.requireAuth , routeTransaction);
 app.use('/books', routeBook);
 
 app.use('/auth', authRoute);
+
+app.use('/cart', cartRoute);
 
 app.use(express.static('public'));
 
