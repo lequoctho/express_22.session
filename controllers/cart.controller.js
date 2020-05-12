@@ -25,7 +25,6 @@ module.exports.addToCart = function(req, res, next) {
     var user = users.find(user=>user.id === objTransaction.userId);
     var book = books.find(book=>book.id === objTransaction.bookId);
     
-    objTransaction.userId = user.text;
     objTransaction.bookId = book.text;
     return objTransaction;
   });
