@@ -6,7 +6,8 @@ block content
       th Avatar
       th Name
       th Delete
-      th Delete
+      th Update
+      th Add to cart
     each book in books
       tr
         td
@@ -16,6 +17,8 @@ block content
           a.btn.btn-dark(href="/books/" + book.id + "/delete/" ) Delete
         td
           a.btn.btn-dark(href="/books/update/" +book.id) Update
+        td
+          a.btn.btn-dark(href="/books/cart/" +book.id) Add to cart
 
   form(action="/books/create", method="POST", enctype="multipart/form-data")
     .form-group
