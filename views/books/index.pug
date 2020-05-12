@@ -1,17 +1,8 @@
 extends ../layouts/common
 
 block content
-  h1 Order: 
-  table.table
-    tr
-      th Name
-      th amount
-    each session in sessions
-      tr
-        each val, key in session.cart
-          td=key
-          td=val
-        
+  button.btn.btn-primary.m-3 Thuê Sách
+  
   table.table
     tr
       th Avatar

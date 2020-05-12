@@ -19,19 +19,8 @@ module.exports.addToCart = function(req, res, next) {
 		.set('cart.'+bookId, count + 1)
 		.write();
   
-  var books = db.get('books').value();
-  var sessionsCartDB = JSON.parse(JSON.stringify(db.get('sessions.cart').value()));
-  var sessionsCart = sessionsCartDB.map((objSessionsCartDB) => {
-    
-    var book = books.find(book=>book.id === objSessionsCartDB.bookId);
-    
-    objSessionsCartDB.bookId = book.text;
-    return objSessionsCartDB;
-  });
-  
 	res.render('books/index',{
-    books: books,
-    sessions: sessionsCart,
-    sesionId: sessionId
+    books: db.get('books').value(),
+    sessions: db.get('sessions').value()
   });
 };
