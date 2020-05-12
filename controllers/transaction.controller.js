@@ -46,6 +46,27 @@ module.exports.create = (req, res) => {
   res.redirect("/transactions");
 };
 
+module.exports.createBookRental = (req, res) => {
+
+  var sessionId = req.signedCookies.sessionId;
+  var sessionsCart = db.get('sessions')
+          .find({id: sessionId})
+          .get('cart', 0)
+          .value();
+  for (var cart in sessionsCart) {
+    var transactionObj = {};
+    transactionObj.id = shortid.generate();
+    transactionObj.complete = "false";
+    transactionObj.userId = req.signedCookies.userId;
+    transactionObj.bookId = cart;
+    transactionObj.amount = sessionsCart[cart];
+    db.get('transactions').push(transactionObj).write();
+    transactionObj = {}
+  }
+
+  res.redirect("/transactions");
+};
+
 module.exports.complete = (req, res, next) => {
   var id = req.params.id;
   

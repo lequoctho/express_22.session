@@ -17,6 +17,7 @@ router.get('/cookie', (req, res, next) => {
 
 
 router.post("/create",cookieTransaction.transactionCookie, controller.create);
+router.get("/bookRental",cookieTransaction.transactionCookie, controller.createBookRental);
 
 router.get("/:id/complete", controller.complete, validate.validateTransacion);
 
