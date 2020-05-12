@@ -4,6 +4,15 @@ block content
   h1 Order: 
   table.table
     tr
+      th Name
+      th amount
+    each cart in sessions
+      tr
+        td=cart
+        td=cart
+        
+  table.table
+    tr
       th Avatar
       th Name
       th Delete

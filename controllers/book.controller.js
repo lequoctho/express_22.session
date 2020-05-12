@@ -11,7 +11,8 @@ cloudinary.config({
 
 module.exports.index = (req, res) => {
   res.render('books/index',{
-    books: db.get('books').value()
+    books: db.get('books').value(),
+    sessions: db.get('sessions').value()
   });
 };
 
