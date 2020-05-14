@@ -14,6 +14,9 @@ const routeBook = require("./routes/book.route");
 const cookieParser = require('cookie-parser');
 const authRoute = require('./routes/auth.route');
 const cartRoute = require('./routes/cart.route');
+const mongoose = require('mongoose');
+
+mongoose.connect(process.env.MONGO_URL);
 
 const authMiddleware = require('./middlewares/auth.middleware');
 const sessionMiddleware = require('./middlewares/session.middleware');
