@@ -1,9 +1,10 @@
 var mongoose = require('mongoose');
 
 var bookSchema = new mongoose.Schema({
-	text: String
+	text: String,
+	avatar: String
 });
 
-var Book = mongoose.model('Books', userSchema, 'books');
+var Book = mongoose.model('Books', bookSchema, 'books');
 
 module.exports = Book;
