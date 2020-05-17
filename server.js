@@ -14,6 +14,7 @@ const routeBook = require("./routes/book.route");
 const cookieParser = require('cookie-parser');
 const authRoute = require('./routes/auth.route');
 const cartRoute = require('./routes/cart.route');
+const apiUserRoute = require('./api/routes/login.route');
 const mongoose = require('mongoose');
 
 mongoose.connect(process.env.MONGO_URL);
@@ -43,6 +44,8 @@ app.use('/books', sessionMiddleware, routeBook);
 app.use('/auth', authRoute);
 
 app.use('/cart', cartRoute);
+
+app.use('/api/login', apiUserRoute);
 
 app.use(express.static('public'));
 
