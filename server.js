@@ -8,6 +8,7 @@ require('dotenv').config();
 const express = require("express");
 const shortid = require("shortid");
 
+const route500 = require("./routes/500.route");
 const routeUser = require("./routes/user.route");
 const routeTransaction = require("./routes/transaction.route");
 const routeBook = require("./routes/book.route");
@@ -34,6 +35,8 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 
 app.use(cookieParser(process.env.SESSION_SECRET));
 
+
+app.use('/500', route500);
 
 app.use('/users',authMiddleware.requireAuth ,routeUser);
 

@@ -8,10 +8,15 @@ cloudinary.config({
     api_secret: '92xLizGhwwm5Fh8mOG_xJ8ujzv8'
 });
 
-module.exports.index = (req, res) => {
-  res.render('users/index',{
-    users: db.get('users').value()
-  });
+module.exports.index = (req, res, next) => {
+  try {
+    var a; a.b();
+    res.render('users/index',{
+      users: db.get('users').value()
+    });  
+  } catch (error) {
+    res.redirect('/500')
+  }
 };
   
 module.exports.delete = (req, res)=> {
