@@ -10,7 +10,7 @@ cloudinary.config({
 
 module.exports.index = (req, res, next) => {
   try {
-    var a; a.b();
+    //var a; a.b();
     res.render('users/index',{
       users: db.get('users').value()
     });  
