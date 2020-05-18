@@ -1,0 +1,5 @@
+node_modules
+db.json
+.env
+package.json
+public/uploads
