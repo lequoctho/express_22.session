@@ -7,26 +7,32 @@
   "description": "A simple Node app built on Express, instantly up and running.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "dev": "nodemon --inspect server.js",
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "pug": "^2.0.4",
-    "lowdb": "^1.0.0",
-    "shortid": "^2.2.15",
-    "cookie-parser": "^1.4.5",
-    "md5": "^2.2.1",
-    "bcrypt": "^4.0.1",
-    "dotenv": "^8.2.0",
     "@sendgrid/mail": "^7.1.0",
+    "bcrypt": "^4.0.1",
+    "cloudinary": "^1.21.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "lowdb": "^1.0.0",
+    "md5": "^2.2.1",
+    "mongoose": "^5.9.14",
     "multer": "^1.4.2",
-    "cloudinary": "^1.21.0"
+    "pug": "^2.0.4",
+    "shortid": "^2.2.15"
   },
   "engines": {
     "node": "12.x"
   },
   "repository": {
     "url": "https://glitch.com/edit/#!/hello-express"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
   },
   "license": "MIT",
   "keywords": [
