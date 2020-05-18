@@ -16,6 +16,7 @@ const cookieParser = require('cookie-parser');
 const authRoute = require('./routes/auth.route');
 const cartRoute = require('./routes/cart.route');
 const apiUserRoute = require('./api/routes/login.route');
+const shopRoute = require('./routes/shop.route');
 const mongoose = require('mongoose');
 
 mongoose.connect(process.env.MONGO_URL);
@@ -42,13 +43,15 @@ app.use('/users',authMiddleware.requireAuth ,routeUser);
 
 app.use('/transactions',authMiddleware.requireAuth , routeTransaction);
 
-app.use('/books', sessionMiddleware, routeBook);
+app.use('/books', routeBook);
 
 app.use('/auth', authRoute);
 
 app.use('/cart', cartRoute);
 
 app.use('/api/login', apiUserRoute);
+
+app.use('/shop', shopRoute);
 
 app.use(express.static('public'));
 
